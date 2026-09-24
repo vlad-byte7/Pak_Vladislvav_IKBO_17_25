@@ -23,7 +23,7 @@ grep -o '\b[A-Za-z_][A-Za-z0-9_]*\b' "$1" | sort -u
 chmod +x "$1"
 sudo cp "$1" /usr/local/bin/
 ## Задание 6
-#!/bin/bash
+    #!/bin/bash
 
     for file in *.c *.js *.py; do
         [ -e "$file" ] || continue
