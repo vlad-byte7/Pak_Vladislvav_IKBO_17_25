@@ -16,7 +16,7 @@ echo "+$line+"
 ## Задание 4
 #!/bin/bash
 
-grep -oE '\b[A-Za-z_][A-Za-z0-9_]*\b' "$1" | sort -u
+grep -o '\b[A-Za-z_][A-Za-z0-9_]*\b' "$1" | sort -u
 ## Задание 5
 #!/bin/bash
 
