@@ -59,11 +59,16 @@ find "$1" -type f -exec sha256sum {} + | sort | uniq -w 64 -D
 ## Задание 8
 #!/bin/bash
 
-find . -maxdepth 1 -type f -name "*.$1" -print0 | tar --null -cvf archive.tar --files-from=-
+find . -maxdepth 1 -type f -name "*.$1" -print0 | tar --null -cf archive.tar -T -
 ## Задание 9
 #!/bin/bash
 
-sed $'s/    /\t/g' "$1" > "$2"
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Укажите входной и выходной файлы"
+    exit 1
+fi
+
+sed 's/    /\t/g' "$1" > "$2"
 ## Задание 10
 #!/bin/bash
 
