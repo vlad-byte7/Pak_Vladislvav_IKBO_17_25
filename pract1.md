@@ -25,28 +25,28 @@ sudo cp "$1" /usr/local/bin/
 ## Задание 6
 #!/bin/bash
 
-for file in *.c *.js *.py; do
-    [ -e "$file" ] || continue
-
-    first_line=$(head -n 1 "$file")
-
-    case "$file" in
-        *.c|*.js)
-            if echo "$first_line" | grep -Eq '^[[:space:]]*(//|/\*)'; then
-                echo "$file: комментарий есть"
-            else
-                echo "$file: комментария нет"
-            fi
-            ;;
-        *.py)
-            if echo "$first_line" | grep -Eq '^[[:space:]]*#'; then
-                echo "$file: комментарий есть"
-            else
-                echo "$file: комментария нет"
-            fi
-            ;;
-    esac
-done
+    for file in *.c *.js *.py; do
+        [ -e "$file" ] || continue
+        
+        first_line=$(head -n 1 "$file")
+        
+        case "$file" in
+            *.c|*.js)
+                if echo "$first_line" | grep -Eq '^[[:space:]]*(//|/\*)'; then
+                    echo "$file: комментарий есть"
+                else
+                    echo "$file: комментария нет"
+                fi
+                ;;
+            *.py)
+                if echo "$first_line" | grep -Eq '^[[:space:]]*#'; then
+                    echo "$file: комментарий есть"
+                else
+                    echo "$file: комментария нет"
+                fi
+                ;;
+        esac
+    done
 ## Задание 7
 #!/bin/bash
 
